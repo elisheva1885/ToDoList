@@ -1,89 +1,101 @@
-import {  createContext, useReducer, type ReactNode } from "react";
+import { createContext, useContext, useReducer, type ReactNode } from "react";
 
 type ToDo = {
     id: number,
-    description : string,
-    status : 'pending' | 'complete'
+    description: string,
+    status: 'pending' | 'complete'
 };
 
-type ToDos = {
-    todos : ToDo []
+type ToDosState = {
+    todos: ToDo[]
 };
 
-type ToDoContext = ToDos & {
-    addToDo : (todo: ToDo)=> void,
-    deleteToDo : (id: number)=> void,
-    updateToDoStatus : (id: number)=> void
+type ToDoContext = ToDosState & {
+    addToDo: (todo: ToDo) => void,
+    deleteToDo: (id: number) => void,
+    updateToDoStatus: (id: number) => void
 };
 const ToDosContext = createContext<ToDoContext | null>(null);
 
-const initalState : ToDos = {
-    todos : []
+const initalState: ToDosState = {
+    todos: []
 }
 
 type ToDosContextProviderProps = {
-    children : ReactNode
+    children: ReactNode
 }
 
-type Action = AddToDoAction| DeleteToDoAction | UpdateToDo
+type Action = AddToDoAction | DeleteToDoAction | UpdateToDoAction
 
 type AddToDoAction = {
     type: 'ADD_TO_DO',
-    payload : ToDo
+    payload: ToDo
 }
 
 type DeleteToDoAction = {
     type: 'DELETE_TO_DO',
-    payload : number
+    payload: number
 }
 
-type UpdateToDo = {
-    type : 'UPDATE_TO_DO',
-    payload : number
+type UpdateToDoAction = {
+    type: 'UPDATE_TO_DO',
+    payload: number
 }
 
 
-function toDosReducer(state : ToDos, action : Action): ToDos{
-    if(action.type === 'ADD_TO_DO'){  
-        return{
-            ...state,
-            todos:[
-                {
-                    id: action.payload.id,
-                    description : action.payload.description,
-                    status: action.payload.status
-                }
-            ]
+function toDosReducer(state: ToDosState, action: Action): ToDosState {
+    switch (action.type) {
+        case 'ADD_TO_DO':
+            return {
+                ...state,
+                todos: [  ...state.todos,action.payload]
 
-        }
+            }
+        case 'DELETE_TO_DO':
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id !== action.payload)
+
+            }
+        case 'UPDATE_TO_DO':
+            return {
+                ...state,
+                todos: state.todos.map(todo =>
+                    todo.id === action.payload ?
+                        { ...todo, status: 'complete' } :
+                        todo)
+            }
+        default:
+            return state;
     }
-    if( action.type === 'DELETE_TO_DO'){
-        return{
-            ...state,
-            
-            
-        }
-    }
-    if(action.type ===  'UPDATE_TO_DO'){
-        return{
-            ...state
-        }
-    }
-    return state;
 }
 
-function ToDosContextProvider(props: ToDosContextProviderProps){
-   const [todosState , dispatch] =  useReducer(toDosReducer , initalState)
-    const ctx : ToDoContext = {
-        todos : [] ,
-        addToDo(todo){
-            dispatch({type: 'ADD_TO_DO', payload: todo})
+export function useToDosContext (){
+    const todosCtx  = useContext(ToDosContext)
+    if(todosCtx=== null){
+        throw new Error('ToDosContext is null - error')
+    }
+    return todosCtx;
+}
+
+export function ToDosProvider({ children }: ToDosContextProviderProps) {
+    const [todosState, dispatch] = useReducer(toDosReducer, initalState)
+    const ctx: ToDoContext = {
+        todos: todosState.todos,
+        addToDo(todo) {
+            dispatch({ type: 'ADD_TO_DO', payload: todo })
         },
-        deleteToDo(id){
-            dispatch({type: 'DELETE_TO_DO', payload: id})
+        deleteToDo(id) {
+            dispatch({ type: 'DELETE_TO_DO', payload: id })
         },
-        updateToDoStatus(id){
-            dispatch({type: 'UPDATE_TO_DO', payload: id})
+        updateToDoStatus(id) {
+            dispatch({ type: 'UPDATE_TO_DO', payload: id })
         }
     }
+
+    return (
+        <ToDosContext.Provider value={ctx}>
+            {children}
+        </ToDosContext.Provider>
+    )
 }
