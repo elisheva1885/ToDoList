@@ -11,7 +11,7 @@ type ToDosState = {
 };
 
 type ToDoContext = ToDosState & {
-    addToDo: (todo: ToDo) => void,
+    addToDo: (description: string) => void,
     deleteToDo: (id: number) => void,
     updateToDoStatus: (id: number) => void
 };
@@ -38,7 +38,7 @@ type Action = AddToDoAction | DeleteToDoAction | UpdateToDoAction
 
 type AddToDoAction = {
     type: typeof ActionType.ADD,
-    payload: ToDo
+    payload: string
 }
 
 type DeleteToDoAction = {
@@ -55,9 +55,14 @@ type UpdateToDoAction = {
 const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
     switch (action.type) {
         case ActionType.ADD:
+            const todo : ToDo = {
+                id: (state.todos[state.todos.length - 1]?.id ?? 0 )+1,
+                description : action.payload,
+                status: 'pending'
+            }
             return {
                 ...state,
-                todos: [  ...state.todos,action.payload]
+                todos: [  ...state.todos,todo]
 
             }
         case ActionType.DELETE:
