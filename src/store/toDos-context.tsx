@@ -17,7 +17,7 @@ type ToDoContext = ToDosState & {
 };
 const ToDosContext = createContext<ToDoContext | null>(null);
 
-const initalState: ToDosState = {
+const initialState : ToDosState = {
     todos: []
 }
 
@@ -25,44 +25,53 @@ type ToDosContextProviderProps = {
     children: ReactNode
 }
 
+const ActionType =  {
+    ADD  : 'ADD_TO_DO',
+    DELETE : 'DELETE_TO_DO' ,
+    UPDATE  : 'UPDATE_TO_DO'
+} as const
+
+
+
+
 type Action = AddToDoAction | DeleteToDoAction | UpdateToDoAction
 
 type AddToDoAction = {
-    type: 'ADD_TO_DO',
+    type: typeof ActionType.ADD,
     payload: ToDo
 }
 
 type DeleteToDoAction = {
-    type: 'DELETE_TO_DO',
+    type: typeof ActionType.DELETE,
     payload: number
 }
 
 type UpdateToDoAction = {
-    type: 'UPDATE_TO_DO',
+    type: typeof ActionType.UPDATE,
     payload: number
 }
 
 
 function toDosReducer(state: ToDosState, action: Action): ToDosState {
     switch (action.type) {
-        case 'ADD_TO_DO':
+        case ActionType.ADD:
             return {
                 ...state,
                 todos: [  ...state.todos,action.payload]
 
             }
-        case 'DELETE_TO_DO':
+        case ActionType.DELETE:
             return {
                 ...state,
                 todos: state.todos.filter(todo => todo.id !== action.payload)
 
             }
-        case 'UPDATE_TO_DO':
+        case ActionType.UPDATE:
             return {
                 ...state,
                 todos: state.todos.map(todo =>
                     todo.id === action.payload ?
-                        { ...todo, status: 'complete' } :
+                        { ...todo, status: todo.status==='complete'? 'pending': 'complete' } :
                         todo)
             }
         default:
@@ -79,17 +88,17 @@ export function useToDosContext (){
 }
 
 export function ToDosProvider({ children }: ToDosContextProviderProps) {
-    const [todosState, dispatch] = useReducer(toDosReducer, initalState)
+    const [todosState, dispatch] = useReducer(toDosReducer, initialState)
     const ctx: ToDoContext = {
         todos: todosState.todos,
         addToDo(todo) {
-            dispatch({ type: 'ADD_TO_DO', payload: todo })
+            dispatch({ type: ActionType.ADD, payload: todo })
         },
         deleteToDo(id) {
-            dispatch({ type: 'DELETE_TO_DO', payload: id })
+            dispatch({ type: ActionType.DELETE, payload: id })
         },
         updateToDoStatus(id) {
-            dispatch({ type: 'UPDATE_TO_DO', payload: id })
+            dispatch({ type: ActionType.UPDATE, payload: id })
         }
     }
 
