@@ -52,7 +52,7 @@ type UpdateToDoAction = {
 }
 
 
-function toDosReducer(state: ToDosState, action: Action): ToDosState {
+const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
     switch (action.type) {
         case ActionType.ADD:
             return {
@@ -79,7 +79,7 @@ function toDosReducer(state: ToDosState, action: Action): ToDosState {
     }
 }
 
-export function useToDosContext (){
+export const useToDosContext= ()=>{
     const todosCtx  = useContext(ToDosContext)
     if(todosCtx=== null){
         throw new Error('ToDosContext is null - error')
@@ -87,7 +87,7 @@ export function useToDosContext (){
     return todosCtx;
 }
 
-export function ToDosProvider({ children }: ToDosContextProviderProps) {
+export const ToDosProvider = ({ children }: ToDosContextProviderProps) => {
     const [todosState, dispatch] = useReducer(toDosReducer, initialState)
     const ctx: ToDoContext = {
         todos: todosState.todos,
