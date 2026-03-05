@@ -1,6 +1,6 @@
 
 import './App.css'
-import { ToDosProvider } from './store/toDos-context'
+import { ToDosProvider } from './store/todos-context'
 
 const App = () => {
 
