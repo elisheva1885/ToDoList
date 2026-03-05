@@ -1,0 +1,36 @@
+.todo-box {
+    border: 2px solid white;
+    border-radius: 2%;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-evenly;
+    padding: 5px 18px;
+    /* margin: 10%; */
+}
+
+.delete-button {
+    color: black;
+    background-color: red;
+    border-radius: 1px solid black;
+    font-size: x-large;
+    padding: 2px 11px;
+    /* margin: 8%; */
+}
+
+.button-pending {
+    background-color: #F3A600;
+}
+
+.button-completed {
+    background-color: #C77AFA;
+}
+
+.description {
+    flex-grow: 3;
+    margin-right: 50px;
+    padding-right: 50px;
+}
+
+

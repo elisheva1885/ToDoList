@@ -1,17 +1,20 @@
 //change to get the info from the context
 
-
-export function ToDo() {
+import './todo.css'
+export const ToDo = ()=> {
     const todo = {
         id: 1,
         description : "working on the todoList",
         status: 'pending'
     } 
+    const showClick = ()=> {
+        alert('click')
+    }
     return(
         <div className="todo-box">
-            {todo.description}
-            <button disabled = {todo.status!=='pending'}>{todo.status!=='pending'? 'Completed': 'Complete'}</button>
-            <button className="delete-button">X</button>
+           <p className={todo.status==='pending'? 'description pending': 'description completed'}>{todo.description}  </p> 
+            <button className={todo.status==='pending'? 'button-pending': 'button-completed'} disabled = {todo.status!=='pending'} onClick={showClick}>{todo.status!=='pending'? 'Completed': 'Complete'}</button>
+            <button className="delete-button" onClick={showClick}>X</button>
         </div>
     )
 }
