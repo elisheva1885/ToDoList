@@ -19,7 +19,6 @@ const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
             return {
                 ...state,
                 todos: [  ...state.todos,todo]
-
             }
         }
         case ActionType.DELETE:
@@ -57,6 +56,7 @@ export const ToDosProvider = ({ children }: ToDosContextProviderProps) => {
             dispatch({ type: ActionType.UPDATE, payload: id })
         }
     }
+    console.log("in the prov ",ctx)
 
     return (
         <ToDosContext.Provider value={ctx}>

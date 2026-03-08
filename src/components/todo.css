@@ -4,19 +4,14 @@
     color: white;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
     padding: 5px 18px;
-    /* margin: 10%; */
+    background-color: black;
 }
-
-
 
 .pending {
     background-color: #F3A600;
 }
-
-
-
 
 .button {
     font-size: large;
@@ -28,36 +23,30 @@
 
 .completed {
     background-color: #C77AFA;
-    padding: 5px 1px;
+    padding: 3px 1px;
     text-align: center;
+    outline: 1.5px solid white;
+    outline-offset: 2px;
 }
 
 .delete {
-    color: black;
     background-color: red;
-    border-radius: 1px solid black;
-    font-size: x-large;
+    border: 1px solid black;
+    border-radius: 4px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 7px 5px;
-
-    /* padding: 2px 11px; */
-    /* margin: 8%; */
+    justify-content: center;
+    padding: 6px 7px;
+    font-size: medium;
+    font-weight: 600;
 }
 
 .description {
-    /* flex-grow: 3;
-        width: 70%; */
     flex: 1;
-    /* /* margin-right: 50px; */
     padding-right: 50px;
-    /* justify-self: flex-start; */
-
     text-align: left;
 }
 
-.completed-txt{
-    text-decoration:line-through;
-    
+.completed-txt {
+    text-decoration: line-through;
 }
