@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { TodoList } from './components/todo-list'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css'
+import { ToDosProvider } from './store/todos-context'
+
+const App = () => {
 
   return (
-    <>
-     <TodoList/>
-    </>
+    <ToDosProvider>
+      <div>Hello</div>
+    </ToDosProvider>
   )
 }
 
