@@ -5,12 +5,34 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: space-evenly;
     padding: 5px 18px;
     /* margin: 10%; */
 }
 
-.delete-button {
+
+
+.pending {
+    background-color: #F3A600;
+}
+
+
+
+
+.button {
+    font-size: large;
+    padding: 5px 12px;
+    text-align: left;
+    padding-left: 3px;
+    color: black;
+}
+
+.completed {
+    background-color: #C77AFA;
+    padding: 5px 1px;
+    text-align: center;
+}
+
+.delete {
     color: black;
     background-color: red;
     border-radius: 1px solid black;
@@ -24,22 +46,18 @@
     /* margin: 8%; */
 }
 
-.button-pending {
-    background-color: #F3A600;
-}
-
-.button-completed {
-    background-color: #C77AFA;
-}
-
 .description {
     /* flex-grow: 3;
         width: 70%; */
-flex: 1;
+    flex: 1;
     /* /* margin-right: 50px; */
-    padding-right: 50px; 
+    padding-right: 50px;
     /* justify-self: flex-start; */
-   
+
     text-align: left;
 }
 
+.completed-txt{
+    text-decoration:line-through;
+    
+}

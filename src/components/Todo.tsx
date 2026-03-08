@@ -13,10 +13,10 @@ export const ToDo = ()=> {
         alert('click')
     }
     return(
-        <div className="todo-box">
-           <p className={todo.status==='pending'? 'description pending': 'description completed'}>{todo.description}  </p> 
-            <button className={todo.status==='pending'? 'button-pending': 'button-completed'} disabled = {todo.status!=='pending'} onClick={showClick}>{todo.status!=='pending'? 'Completed': 'Complete'}</button>
-            <button className="delete-button" onClick={showClick}>    <FaTimes />
+        <div className="todo-box inter">
+           <p className={todo.status==='pending'? 'description pending-txt': 'description completed-txt' }>{todo.description}  </p> 
+            <button className= {todo.status==='pending'? 'button pending': 'button completed'} disabled = {todo.status!=='pending'} onClick={showClick}>{todo.status!=='pending'? 'Completed': 'Complete'}</button>
+            <button className="delete button" onClick={showClick}>    <FaTimes />
 
 </button>
         </div>
