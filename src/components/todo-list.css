@@ -1,0 +1,10 @@
+.list-body{
+    background-color: #CA45FF;
+}
+
+.pending-tasks{
+    color: white;
+    font-size: x-large;
+    margin:  10% 0%;
+    padding: 10px;
+}
