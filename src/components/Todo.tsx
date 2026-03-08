@@ -1,5 +1,4 @@
 //change to get the info from the context
-import { TiDelete } from "react-icons/ti";
 
 import './todo.css'
 import { FaTimes } from "react-icons/fa";
