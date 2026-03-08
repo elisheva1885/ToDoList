@@ -15,7 +15,12 @@
     background-color: red;
     border-radius: 1px solid black;
     font-size: x-large;
-    padding: 2px 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 5px;
+
+    /* padding: 2px 11px; */
     /* margin: 8%; */
 }
 
@@ -28,9 +33,13 @@
 }
 
 .description {
-    flex-grow: 3;
-    margin-right: 50px;
-    padding-right: 50px;
+    /* flex-grow: 3;
+        width: 70%; */
+flex: 1;
+    /* /* margin-right: 50px; */
+    padding-right: 50px; 
+    /* justify-self: flex-start; */
+   
+    text-align: left;
 }
-
 
