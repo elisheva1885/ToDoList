@@ -6,9 +6,6 @@ import { ToDosProvider } from './store/todos-context.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToDosProvider>
       <App />
-    </ToDosProvider>
-
   </StrictMode>,
 )

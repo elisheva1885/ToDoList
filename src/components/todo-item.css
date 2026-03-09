@@ -1,12 +1,14 @@
 .todo-box {
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     border-radius: 2%;
     color: white;
     display: flex;
     align-items: center;
     gap: 7px;
-    padding: 5px 18px;
-    background-color: black;
+    padding: 6px 5px;
+    background-color: #201F1F;
+    height: 100%;
+
 }
 
 .pending {
@@ -15,10 +17,12 @@
 
 .button {
     font-size: large;
-    padding: 5px 12px;
+    padding: 1px 12px;
     text-align: left;
     padding-left: 3px;
     color: black;
+    font-size: medium;
+    border-radius: 2.5px;
 }
 
 .completed {
@@ -26,25 +30,29 @@
     padding: 3px 1px;
     text-align: center;
     outline: 1.5px solid white;
-    outline-offset: 2px;
+    outline-offset: 1px;
 }
 
 .delete {
     background-color: red;
-    border: 1px solid black;
+    color: black;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 7px;
-    font-size: medium;
-    font-weight: 600;
+    padding: 3px 6px;
+    margin: 1px;
+    font-size: small;
+    font-weight: 400;
 }
 
 .description {
     flex: 1;
     padding-right: 50px;
+    padding-left: 5px;
     text-align: left;
+    margin: 0px;
+    font-size: small;
 }
 
 .completed-txt {

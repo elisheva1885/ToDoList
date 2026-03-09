@@ -4,9 +4,9 @@ import { ToDosContext } from "./use-todos-context";
 
 
 
-const initialState : ToDosState = {
-    todos: []
-}
+const initialState: ToDosState = {
+  todos: []
+};
 
 const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
     switch (action.type) {
@@ -56,7 +56,6 @@ export const ToDosProvider = ({ children }: ToDosContextProviderProps) => {
             dispatch({ type: ActionType.UPDATE, payload: id })
         }
     }
-    console.log("in the prov ",ctx)
 
     return (
         <ToDosContext.Provider value={ctx}>
