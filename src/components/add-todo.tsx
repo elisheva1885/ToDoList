@@ -13,11 +13,14 @@ export const AddToDo = () => {
     const save = () => {
         const desc = input_ref.current?.value;
         ctx.addToDo(desc)
-        console.log("updated todo: ", ctx.todos);
         
     }
 
     return (
-        <input id="input-todo" ref={input_ref} onBlur={save} type="text" placeholder="Enter a new task" />
+        <input id="input-todo" ref={input_ref} type="text" placeholder="Enter a new task" onKeyDown={e=> {
+            if(e.key === 'Enter'){
+                save()
+            }
+        }}/>
     )
 }

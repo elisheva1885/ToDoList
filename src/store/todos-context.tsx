@@ -1,25 +1,24 @@
-import {  useReducer } from "react";
+import { useReducer } from "react";
 import { ActionType, type Action, type ToDo, type ToDoContext, type ToDosContextProviderProps, type ToDosState } from "./types";
 import { ToDosContext } from "./use-todos-context";
 
 
 
-const initialState : ToDosState = {
+const initialState: ToDosState = {
     todos: []
 }
 
 const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
     switch (action.type) {
-        case ActionType.ADD:{
-            const todo : ToDo = {
-                id: (state.todos[state.todos.length - 1]?.id ?? 0 )+1,
-                description : action.payload,
+        case ActionType.ADD: {
+            const todo: ToDo = {
+                id: (state.todos[state.todos.length - 1]?.id ?? 0) + 1,
+                description: action.payload,
                 status: 'pending'
             }
             return {
                 ...state,
-                todos: [  ...state.todos,todo]
-
+                todos: [...state.todos, todo]
             }
         }
         case ActionType.DELETE:
@@ -33,7 +32,7 @@ const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
                 ...state,
                 todos: state.todos.map(todo =>
                     todo.id === action.payload ?
-                        { ...todo, status: todo.status==='complete'? 'pending': 'complete' } :
+                        { ...todo, status: todo.status === 'complete' ? 'pending' : 'complete' } :
                         todo)
             }
         default:
