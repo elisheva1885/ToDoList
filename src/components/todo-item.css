@@ -27,12 +27,15 @@
 
 .completed {
     background-color: #C77AFA;
-    padding: 3px 1px;
+    padding: 1px 1px;
     text-align: center;
     outline: 1.5px solid white;
     outline-offset: 1px;
 }
 
+.pending:hover{
+        background-color: #C77AFA;
+}
 .delete {
     background-color: red;
     color: black;
