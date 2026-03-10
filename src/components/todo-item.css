@@ -8,11 +8,6 @@
     padding: 6px 5px;
     background-color: #201F1F;
     height: 100%;
-
-}
-
-.pending {
-    background-color: #F3A600;
 }
 
 .button {
@@ -23,19 +18,20 @@
     color: black;
     font-size: medium;
     border-radius: 2.5px;
+    background-color: #F3A600;
+
 }
 
 .completed {
-    background-color: #C77AFA;
+    /* background-color: #C77AFA; */
     padding: 1px 1px;
     text-align: center;
-    outline: 1.5px solid white;
-    outline-offset: 1px;
 }
 
-.pending:hover{
-        background-color: #C77AFA;
+.button:hover {
+    background-color: #C77AFA;
 }
+
 .delete {
     background-color: red;
     color: black;
