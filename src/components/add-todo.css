@@ -1,0 +1,12 @@
+#input-todo{
+    width: 250px;
+    padding-bottom: 2px;
+    padding-top: 6px;
+    padding-right: 15px;
+    border: none;
+}
+
+#input-todo:focus{
+    border:2px solid white;
+    outline: none;
+}
