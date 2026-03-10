@@ -1,10 +1,28 @@
 .list-body{
-    background-color: #CA45FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    width: 450px;
+    height: 500px;
 }
 
 .pending-tasks{
     color: white;
     font-size: x-large;
-    margin:  10% 0%;
-    padding: 10px;
+    flex-grow: 1;
+}
+
+.todo{
+    padding-bottom: 10px;
+}
+
+.todos{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 3;
+    
 }

@@ -5,7 +5,58 @@ import { ToDosContext } from "./use-todos-context";
 
 
 const initialState: ToDosState = {
-  todos: []
+  todos: [
+    {
+      id: 1,
+      description: "Buy groceries for the week including vegetables, fruits, milk, eggs, bread and a few snacks for the weekend",
+      status: "pending"
+    },
+    {
+      id: 2,
+      description: "Finish the React TodoList assignment and make sure the add, delete and complete actions all work correctly",
+      status: "pending"
+    },
+    {
+      id: 3,
+      description: "Clean the kitchen and organize the cabinets because everything became messy during the last few days",
+      status: "complete"
+    },
+    {
+      id: 4,
+      description: "Go for a long evening walk in the park to clear the head after a long day of coding and studying",
+      status: "pending"
+    },
+    {
+      id: 5,
+      description: "Read documentation about React Context and useReducer to better understand how global state works",
+      status: "pending"
+    },
+    {
+      id: 6,
+      description: "Prepare a list of questions for the team lead about the Todo project and the expected behavior of the input field",
+      status: "complete"
+    },
+    {
+      id: 7,
+      description: "Review pull request comments carefully and fix the styling issues related to the input focus border",
+      status: "pending"
+    },
+    {
+      id: 8,
+      description: "Refactor the Todo component so the layout behaves correctly when the text becomes very long and wraps to a new line",
+      status: "pending"
+    },
+    {
+      id: 9,
+      description: "Spend some time practicing TypeScript types for reducers and actions to avoid common typing errors",
+      status: "complete"
+    },
+    {
+      id: 10,
+      description: "Check how the UI behaves when there are many tasks in the list and make sure scrolling still works well",
+      status: "pending"
+    }
+  ]
 };
 
 const toDosReducer = (state: ToDosState, action: Action): ToDosState => {

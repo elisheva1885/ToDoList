@@ -1,4 +1,5 @@
 import { useToDosContext } from '../store/use-todos-context';
+import { ToDoItem } from './todo-item';
 import './todo-list.css'
 
 
@@ -10,7 +11,9 @@ export const TodoList = () => {
         <>
             <div className='list-body'>
                 <p className='pending-tasks'> Pending tasks ({pending_todos_count})</p>
-                {/* {todos.map(todo =>)} */}
+                <div className='todos'>
+                {ctx.todos.map(todo => <span className='todo'><ToDoItem todo={todo}/></span>)}
+                </div>
             </div>
         </>
     )
