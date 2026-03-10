@@ -11,15 +11,16 @@ export const AddToDo = () => {
             return;
         }
         ctx.addToDo(input.value)
+        input.value = ''
     }
 
-    const onKeyClick = (e: React.KeyboardEvent<HTMLInputElement>)=> {
+    const onKeyClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-                save()
-            }
+            save()
         }
+    }
 
     return (
-        <input id="input-todo" ref={input_ref} type="text" placeholder="Enter a new task" onKeyDown={e=>onKeyClick(e) } />
+        <input id="input-todo" ref={input_ref} type="text" placeholder="Enter a new task" onKeyDown={e => onKeyClick(e)} />
     )
 }

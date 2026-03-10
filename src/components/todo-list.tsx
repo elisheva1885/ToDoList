@@ -1,4 +1,5 @@
 import { useToDosContext } from '../store/use-todos-context';
+import { AddToDo } from './add-todo';
 import { ToDoItem } from './todo-item';
 import './todo-list.css'
 
@@ -14,6 +15,9 @@ export const TodoList = () => {
                 <div className='todos'>
                 {ctx.todos.map(todo => <span className='todo'><ToDoItem todo={todo}/></span>)}
                 </div>
+                <span className='add-task'>
+                <AddToDo/>
+                </span>
             </div>
         </>
     )
