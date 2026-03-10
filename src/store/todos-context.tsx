@@ -5,8 +5,8 @@ import { ToDosContext } from "./use-todos-context";
 
 
 const initialState: ToDosState = {
-    todos: []
-}
+  todos: []
+};
 
 const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
     switch (action.type) {
@@ -18,7 +18,7 @@ const toDosReducer = (state: ToDosState, action: Action): ToDosState => {
             }
             return {
                 ...state,
-                todos: [...state.todos, todo]
+                todos: [  ...state.todos,todo]
             }
         }
         case ActionType.DELETE:
