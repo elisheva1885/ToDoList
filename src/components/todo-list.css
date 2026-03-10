@@ -1,28 +1,39 @@
-.list-body{
+.list-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: #201F1F;
     width: 450px;
     height: 500px;
+    border: 2px solid #F1A210;
+    border-radius: 7px;
 }
 
-.pending-tasks{
+.pending-tasks {
     color: white;
     font-size: x-large;
     flex-grow: 1;
+    margin-top: 30px;
 }
 
-.todo{
+.todo {
     padding-bottom: 10px;
 }
 
-.todos{
-    width: 70%;
+.todos {
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     flex-grow: 3;
-    
+    gap: 15px;
+    margin-bottom: 30px;
+    overflow-y: scroll;
+    height: 350px;
+    width: 75%;
+
+}
+
+.todos::-webkit-scrollbar {
+    display: none;
 }
