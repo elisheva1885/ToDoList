@@ -1,5 +1,6 @@
 
 import './App.css'
+import { AddToDo } from './components/add-todo'
 import { ToDosProvider } from './store/todos-context'
 
 const App = () => {
@@ -7,8 +8,9 @@ const App = () => {
   
   return (
     <ToDosProvider>
-     Hello
-      </ToDosProvider>
+
+      <AddToDo/>
+    </ToDosProvider>
   )
 }
 
