@@ -1,4 +1,3 @@
-//change to get the info from the context
 
 import type { ToDo } from '../store/types';
 import { useToDosContext } from '../store/use-todos-context';

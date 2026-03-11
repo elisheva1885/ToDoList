@@ -1,0 +1,38 @@
+import { ToDoItem } from './todo';
+import './todo-list.css'
+
+
+
+type ToDo = {
+    id: number,
+    description: string,
+    status: 'pending' | 'complete'
+};
+
+type ToDosState = {
+    todos: ToDo[]
+};
+
+export const TodoList = () => {
+    const todo1: ToDo = { id: 1, description: "Buy groceries", status: "pending" };
+    const todo2: ToDo = { id: 2, description: "Finish React homework", status: "complete" };
+    const todo3: ToDo = { id: 3, description: "Clean the kitchen", status: "pending" };
+    const todo4: ToDo = { id: 4, description: "Read TypeScript documentation", status: "complete" };
+    const todo5: ToDo = { id: 5, description: "Prepare presentation for class", status: "pending" };
+    const todo6: ToDo = { id: 6, description: "Update GitHub repository", status: "pending" };
+    const todo7: ToDo = { id: 7, description: "Review pull request comments", status: "complete" };
+    const todo8: ToDo = { id: 8, description: "Practice coding exercises", status: "pending" }
+
+    const todos: ToDo[] = [todo1, todo2, todo3, todo4, todo5, todo6, todo7, todo8];
+    let pending_todos_count = 0;
+    todos.map(todo => todo.status === 'pending' ? pending_todos_count++ : pending_todos_count)
+    return (
+        <>
+            <div className='list-body'>
+                <p className='pending-tasks'> Pending tasks ({pending_todos_count})</p>
+
+                {todos.map(todo => <ToDoItem todo={todo} />)}
+            </div>
+        </>
+    )
+}

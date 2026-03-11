@@ -51,6 +51,7 @@
     text-align: left;
     margin: 0px;
     font-size: small;
+    word-break: break-word;
 }
 
 .completed-txt {
